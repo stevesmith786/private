@@ -1,0 +1,6 @@
+json
+telethon
+requests
+prettytable
+configparser
+asyncio
