@@ -34,13 +34,11 @@ client.start()
 
 with client:
           while True:
-            chat = client.get_entity('MoroccanBinners_csc')
-            chatidbmro  = 1345686737
             file1 = open("myfile.txt")  
             ofid = file1.read()
             ofid = int(ofid)
             file1.close()  
-            message = client.iter_messages(chat,reverse=True,offset_id=ofid) #
+            message = client.iter_messages('MoroccanBinners_csc',reverse=True,offset_id=ofid) 
             for msg in message:
              message = msg
              title = msg.text
@@ -63,67 +61,5 @@ with client:
              ano = list[2]
              cvv = list[3]
              lista = list[0] + "|" + list[1] + "|" + list[2] + "|" + list[3]
-             respo = "<b>╔══════════════════════\n╟ • ROLDEXVERSE/SCRAPPER\n╠ » CC: " + cc +"\n╟    ╙ EXP: "+mes+"| "+ano+" \n╟       ╙ CVV: "+cvv+"\n╟ » CHK: <code>"+lista+"</code>\n╠ » BIN: [" + bin + "]->[" + bank +"[" + country + "]\n╠ » CHANNEL: <code>@RoldexVerse</code>\n╠ » GROUP: <code>@RoldexVerseChats</code>\n╠ » Owner: <code>@r0ld3x</code>\n╚══════════════════════</b>"
+             respo = "<b>╔══════════════════════\n╟ • ROLDEXVERSE/SCRAPPER\n╠ » CC: <code>" + cc +"</code>\n╟    ╙ EXP: <code>"+mes+"| "+ano+"</code> \n╟       ╙ CVV: "+cvv+"\n╟ » CHK: <code>"+lista+"</code>\n╠ » BIN: [" + bin + "]->[" + bank +"[" + country + "]\n╠ » CHANNEL: <code>@RoldexVerse</code>\n╠ » GROUP: <code>@RoldexVerseChats</code>\n╠ » Owner: <code>@r0ld3x</code>\n╚══════════════════════</b>"
              client.send_message('roldexverse', respo,parse_mode='html'            )
-            chat = client.get_entity('BinsGram')
-            file1 = open("my.txt")  
-            ofid = file1.read()
-            ofid = int(ofid)
-            file1.close()  
-            message = client.iter_messages(chat,reverse=True,offset_id=ofid) #
-            for msg in message:
-             message = msg
-             title = msg.text
-             m = msg.id
-             file = open("my.txt", 'w')  
-             file.write(str(m))
-             file.close()  
-             list = pregs(title)
-             cc = list[0]
-             if len(cc) != 16:
-              break
-             country = requests.get("https://unimpeachable-faste.000webhostapp.com/con.php?lista=" + bin).text
-             if len(country) == 0:
-              country = 'N.A'
-             bank = requests.get("https://unimpeachable-faste.000webhostapp.com/bank.php?lista=" + bin).text
-             if len(bank) == 0:
-              country = 'N.A'
-             mes = list[1]
-             ano = list[2]
-             cvv = list[3]
-             lista = list[0] + "|" + list[1] + "|" + list[2] + "|" + list[3]
-             respo = "<b>╔══════════════════════\n╟ • ROLDEXVERSE/SCRAPPER\n╠ » CC: " + cc +"\n╟    ╙ EXP: "+mes+"| "+ano+" \n╟       ╙ CVV: "+cvv+"\n╟ » CHK: <code>"+lista+"</code>\n╠ » BIN: [" + bin + "]->[" + bank +"[" + country + "]\n╠ » CHANNEL: <code>@RoldexVerse</code>\n╠ » GROUP: <code>@RoldexVerseChats</code>\n╠ » Owner: <code>@r0ld3x</code>\n╚══════════════════════</b>"
-             client.send_message('roldexverse', respo,parse_mode='html'            )
-            chat = client.get_entity('https://t.me/joinchat/y8-dee-PXxI5MDll')
-            file1 = open("myf.txt")  
-            ofid = file1.read()
-            ofid = int(ofid)
-            file1.close()  
-            message = client.iter_messages(chat,reverse=True,offset_id=ofid) #
-            for msg in message:
-             message = msg
-             title = msg.text
-             m = msg.id
-             file = open("myf.txt", 'w')  
-             file.write(str(m))
-             file.close()  
-             list = pregs(title)
-             cc = list[0]
-             if len(cc) != 16:
-              break
-             country = requests.get("https://unimpeachable-faste.000webhostapp.com/con.php?lista=" + bin).text
-             if len(country) == 0:
-              country = 'N.A'
-             bank = requests.get("https://unimpeachable-faste.000webhostapp.com/bank.php?lista=" + bin).text
-             if len(bank) == 0:
-              country = 'N.A'
-             mes = list[1]
-             ano = list[2]
-             cvv = list[3]
-             lista = list[0] + "|" + list[1] + "|" + list[2] + "|" + list[3]
-             respo = "<b>╔══════════════════════\n╟ • ROLDEXVERSE/SCRAPPER\n╠ » CC: " + cc +"\n╟    ╙ EXP: "+mes+"| "+ano+" \n╟       ╙ CVV: "+cvv+"\n╟ » CHK: <code>"+lista+"</code>\n╠ » BIN: [" + bin + "]->[" + bank +"[" + country + "]\n╠ » CHANNEL: <code>@RoldexVerse</code>\n╠ » GROUP: <code>@RoldexVerseChats</code>\n╠ » Owner: <code>@r0ld3x</code>\n╚══════════════════════</b>"
-             client.send_message('roldexverse', respo,parse_mode='html'            )
-
-        
-        
-        
