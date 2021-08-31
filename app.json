@@ -1,18 +1,26 @@
- {
-   "buildpacks": [
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  },{
-    "url":"https://github.com/amivin/aria2-heroku.git"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
-  },{
-     "url": "https://github.com/heroku/heroku-buildpack-apt.git"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
-  },{
-    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-  },{
-    "url": "heroku/python"
-  }]
+{
+    "name": "MORAG TELEGRAPH UPLOADER",
+    "description": "A BOT THAT CAN UPLOAD MEDIAS TO TELEGRA.PH",
+    "logo": "https://telegra.ph/file/2ebd844b4c5ef8c458b8c.jpg",
+    "keywords": [
+        "Telegra.ph",
+        "Uploader",
+        "Telegram Bot",
+        "Benchamxd"
+    ],
+    "website": "http://ultroncc.42web.io.",
+    "repository": "https://github.com/r0ld3x/MORAG-TELEGRAPH-BOT",
+    "success_url": "https://telegram.dog/MORAGLINKS",
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
 }

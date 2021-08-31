@@ -29,10 +29,7 @@ import os
 from telethon import TelegramClient
 from pathlib import Path
 import asyncio
-import telethon.utils
-from telethon.tl.functions.contacts import ResolveUsernameRequest
 from telethon import Button
-from telethon.sync import custom
 import logging
 import requests
 import re
@@ -43,9 +40,9 @@ chat = 1436992328
 api_id = 1667849
 api_hash = 'b719710209932bff18219f4064e92388'
 # api_id = 7239207
-# api_hash = 'ed44780dedd182084f2133b16944cf34'
+#api_hash = 'ed44780dedd182084f2133b16944cf34'
 username = 'r0ld3x'
-bot_token = '1795181134:AAH0WHUhuJeGNgK-KJC_aJl4T4WtmPojewY'
+#bot_token = '1795181134:AAH0WHUhuJeGNgK-KJC_aJl4T4WtmPojewY'
     
 def pregs(dets):
     arrays = re.findall(r'[0-9]+', dets)
@@ -61,18 +58,18 @@ with client:
           while True:
            try:
             asyncio.sleep(2)
-            file1 = open("mari.txt", "r+")    
+            file1 = open("Freakdrop.txt", "r+")    
 # absolute file positioning 
             file1.seek(0)  
             ofid = file1.read()
             ofid = int(ofid)
             file1.close()  
-            message = client.iter_messages('MoroccanBinners_csc',reverse=True,offset_id=ofid,min_id=ofid,wait_time=3)
+            message = client.iter_messages('Freakdrop',reverse=True,offset_id=ofid,min_id=ofid,wait_time=3)
             for msg in message:
              message = msg
              title = msg.text
              m = msg.id
-             file = open("mari.txt", 'r+')  
+             file = open("Freakdrop.txt", 'r+')  
              file.truncate()
              file.write(str(m))
              file.close()  
@@ -82,7 +79,7 @@ with client:
               break
              if len(cc) != 16:
               break
-             con = requests.get("https://unimpeachable-faste.000webhostapp.com/con.php?lista=" + cc).text
+             con = requests.get("https://roldex.codes/bank.php?lista=" + cc).text
              if len(con) == 0:
               con = 'N.A'             
              mes = list[1]
@@ -95,8 +92,52 @@ with client:
               mes = ano1
              lista = cc + "|" + mes + "|" + ano + "|" + cvv
              print(lista)
-             respo = "<b>•> ROLDEXVERSE CC SCRAPPER\n°> CARD -> <code>" + lista + "</code>\n°> " + con + "\n•> CHANNEL -> <code>@RoldexVerse</code>\n•> RECHECK -> <code>@RoldexVerseChats</code> \n•> OWNER -> <code>@r0ld3x</code></b>"
+             respo = "<b>•> ROLDEXVERSE CC SCRAPPER\n°> CARD -> <code>" + lista + "</code>\n•> BIN -> " + con +"\n•> CHANNEL -> @RoldexVerse\n•> RECHECK -> @RoldexVerseChats\n•> OWNER -> <code>@r0ld3x</code></b>"
              # 
+             file1 = open("ccs.txt", "a")
+             m = lista + "\n"
+             file1.write(m)
+             file1.close() 
+             client.send_message('roldexversedrops', respo,parse_mode='html')
+             file1 = open("TeamCrditCard.txt", "r+")    
+             file1.seek(0)  
+             ofid = file1.read()
+             ofid = int(ofid)
+             file1.close()  
+            message = client.iter_messages('TeamCrditCard',reverse=True,offset_id=ofid,min_id=ofid,wait_time=3)
+            for msg in message:
+             message = msg
+             title = msg.text
+             m = msg.id
+             file = open("TeamCrditCard.txt", 'r+')  
+             file.truncate()
+             file.write(str(m))
+             file.close()  
+             list = pregs(title)
+             cc = list[0]
+             if len(cc) == 0:
+              break
+             if len(cc) != 16:
+              break
+             con = requests.get("https://roldex.codes/bank.php?lista=" + cc).text
+             if len(con) == 0:
+              con = 'N.A'             
+             mes = list[1]
+             ano = list[2]
+             ano1 = list[2]
+             cvv = list[3]
+             if len(mes) >= 3:
+              ano = cvv
+              cvv = mes
+              mes = ano1
+             lista = cc + "|" + mes + "|" + ano + "|" + cvv
+             print(lista)
+             respo = "<b>•> ROLDEXVERSE CC SCRAPPER\n°> CARD -> <code>" + lista + "</code>\n•> BIN -> " + con +"\n•> CHANNEL -> @RoldexVerse\n•> RECHECK -> @RoldexVerseChats\n•> OWNER -> <code>@r0ld3x</code></b>"
+             # 
+             file1 = open("ccs.txt", "a")
+             m = lista + "\n"
+             file1.write(m)
+             file1.close() 
              client.send_message('roldexversedrops', respo,parse_mode='html')
            except errors.FloodWaitError as e:
                print('Have to sleep', e.seconds, 'seconds')
